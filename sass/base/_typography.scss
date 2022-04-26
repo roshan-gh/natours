@@ -11,8 +11,7 @@ body {
     color: $color-white;
     text-transform: uppercase;
     margin-bottom: 6rem;
-    /* For shaking animation bug
-    backface-visibility: hidden; */
+    backface-visibility: hidden; // For shaking animation bug
     &--main {
         display: block;
         font-size: 6rem;
