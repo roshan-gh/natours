@@ -23,6 +23,12 @@
             &-1 {
                 background-image: linear-gradient(to right bottom, $color-secondry-light, $color-secondry-dark);
             }
+            &-2 {
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+            }
+            &-3 {
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+            }
         }
     }
     &:hover &__side--front {
@@ -31,7 +37,7 @@
     &:hover &__side--back {
         transform: rotateY(0deg);
     }
-    //Cards Style
+    //Cards front Style
     &__picture {
         background-size: cover;
         height: 23rem;
@@ -42,10 +48,10 @@
             background-image: linear-gradient(to right bottom, $color-secondry-light, $color-secondry-dark), url(../img/nat-5.jpg);
         }
         &--2 {
-            background-image: url(../img/nat-5.jpg);
+            background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../img/nat-6.jpg);
         }
         &--3 {
-            background-image: url(../img/nat-5.jpg);
+            background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(../img/nat-7.jpg);
         }
     }
     &__heading {
@@ -66,6 +72,12 @@
         &--1 {
             background-image: linear-gradient( to right bottom, rgba($color-secondry-light, 0.85), rgba($color-secondry-dark, 0.85));
         }
+        &--2 {
+            background-image: linear-gradient( to right bottom, rgba($color-primary-light, 0.85), rgba($color-primary-dark, 0.85));
+        }
+        &--3 {
+            background-image: linear-gradient( to right bottom, rgba($color-tertiary-light, 0.85), rgba($color-tertiary-dark, 0.85));
+        }
     }
     &__details {
         padding: 3rem;
@@ -82,5 +94,27 @@
                 }
             }
         }
+    }
+    ////Cards back Style
+    &__cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+    }
+    &__pricebox {
+        text-align: center;
+        color: $color-white;
+        margin-bottom: 8rem;
+    }
+    &__price-only {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+    &__value-only {
+        font-size: 6rem;
+        font-weight: 100;
     }
 }
