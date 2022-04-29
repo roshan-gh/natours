@@ -74,4 +74,34 @@
             color: $color-primary;
         }
     }
+    @include respond(phone) {
+        &__content {
+            text-align: center;
+            @include center-horizontal-vertical;
+            width: 50%;
+            height: 40vh;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.25);
+            transition: all 0.4s 0.2s;
+        }
+        &__left {
+            width: 100%;
+            display: block;
+        }
+        &__right {
+            display: block;
+            width: 100%;
+            padding: 2rem 2rem;
+        }
+        &__image {
+            display: inline-block;
+            width: 25vh;
+        }
+        &__text {
+            font-size: 1rem;
+            margin-bottom: 4rem;
+            -moz-column-count: 1;
+            column-count: 1;
+        }
+    }
 }
