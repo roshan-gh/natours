@@ -347,25 +347,32 @@ body {
     font-weight: 100; }
   @media (max-width: 56.25em) {
     .card {
-      height: auto; }
+      height: auto;
+      border-radius: 3px;
+      background-color: #fff;
+      box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
       .card__side {
         height: auto;
         position: relative;
-        border-radius: 3px; }
+        box-shadow: none; }
         .card__side--back {
-          transform: rotateY(0deg); }
+          transform: rotateY(0deg);
+          clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%); }
       .card:hover .card__side--front {
         transform: rotateY(0deg); }
+      .card__details {
+        padding: 1rem 3rem; }
       .card__cta {
         position: relative;
         top: 0;
         left: 0;
         transform: translate(0);
-        width: 100%; }
+        width: 100%;
+        padding: 7rem 4rem 4rem 4rem; }
       .card__pricebox {
-        margin-bottom: 8rem; }
+        margin-bottom: 3rem; }
       .card__value-only {
-        font-size: 6rem; } }
+        font-size: 4rem; } }
 
 .composition {
   position: relative; }
@@ -592,6 +599,14 @@ body {
   padding-left: 9rem;
   font-size: 1.6rem;
   transform: skewX(-12deg); }
+  @media (max-width: 56.25em) {
+    .story {
+      width: 100%;
+      padding: 4rem;
+      padding-left: 7rem; } }
+  @media (max-width: 37.5em) {
+    .story {
+      transform: skewX(0); } }
   .story__shape {
     width: 15rem;
     height: 15rem;
@@ -602,12 +617,18 @@ body {
     clip-path: circle(50% at 50% 50%);
     transform: translateX(-3rem) skewX(12deg);
     position: relative; }
+    @media (max-width: 37.5em) {
+      .story__shape {
+        transform: translateX(-3rem) skewX(0); } }
   .story__image {
     height: 100%;
     transform: translateX(-3rem) scale(1.4);
     transition: all 0.5s; }
   .story__text {
     transform: skewX(12deg); }
+    @media (max-width: 37.5em) {
+      .story__text {
+        transform: skewX(0); } }
   .story__caption {
     position: absolute;
     top: 50%;
@@ -922,8 +943,21 @@ body {
   background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(../img/nat-10.jpg);
   background-size: 100%;
   border-radius: 3px;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-  height: 50rem; }
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
+  @media (max-width: 75em) {
+    .book {
+      background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 65%, transparent 65%), url(../img/nat-10.jpg);
+      background-size: cover; } }
+  @media (max-width: 56.25em) {
+    .book {
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url(../img/nat-10.jpg);
+      background-size: cover; } }
   .book__form {
     width: 50%;
     padding: 6rem; }
+    @media (max-width: 75em) {
+      .book__form {
+        width: 65%; } }
+    @media (max-width: 56.25em) {
+      .book__form {
+        width: 100%; } }

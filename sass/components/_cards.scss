@@ -119,16 +119,23 @@
     }
     @include respond(tab-port) {
         height: auto;
+        border-radius: 3px;
+        background-color: $color-white;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
         &__side {
             height: auto;
             position: relative;
-            border-radius: 3px;
+            box-shadow: none;
             &--back {
                 transform: rotateY(0deg);
+                clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
             }
         }
         &:hover &__side--front {
             transform: rotateY(0deg);
+        }
+        &__details {
+            padding: 1rem 3rem;
         }
         ////Cards back Style
         &__cta {
@@ -137,12 +144,13 @@
             left: 0;
             transform: translate(0);
             width: 100%;
+            padding: 7rem 4rem 4rem 4rem;
         }
         &__pricebox {
-            margin-bottom: 8rem;
+            margin-bottom: 3rem;
         }
         &__value-only {
-            font-size: 6rem;
+            font-size: 4rem;
         }
     }
 }
