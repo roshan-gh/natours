@@ -117,4 +117,32 @@
         font-size: 6rem;
         font-weight: 100;
     }
+    @include respond(tab-port) {
+        height: auto;
+        &__side {
+            height: auto;
+            position: relative;
+            border-radius: 3px;
+            &--back {
+                transform: rotateY(0deg);
+            }
+        }
+        &:hover &__side--front {
+            transform: rotateY(0deg);
+        }
+        ////Cards back Style
+        &__cta {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0);
+            width: 100%;
+        }
+        &__pricebox {
+            margin-bottom: 8rem;
+        }
+        &__value-only {
+            font-size: 6rem;
+        }
+    }
 }
