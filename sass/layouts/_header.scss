@@ -1,13 +1,24 @@
 .header {
-    height: 95vh;
-    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url("../img/hero.jpg");
+    height: 80vh;
+    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url("../img/hero-small.jpg");
     background-size: cover;
     background-position: top;
     position: relative;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); //To work in all browsers
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    //Weather clip-path supports browsers or Safari or not
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0, 0)) {
+        height: 95vh;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); //To work in Safari
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    }
+    //two conditions with (and or,) for responsive images
+    //webkit-min-device-pixel-ratio is for Safari pixel ratio
+    @media (min-resolution: 192dpi) and (min-width: 37.5em),
+    (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    (min-width: 125em) {
+        background-image: linear-gradient( to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url("../img/hero.jpg");
+    }
     @include respond(phone) {
-        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); //To work in all browsers
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
         clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
     }
     &__logo-box {
