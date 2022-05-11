@@ -1,0 +1,62 @@
+@mixin clearfix {
+    &::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+}
+
+@mixin center-horizontal-vertical {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+//Media Query Manager
+
+/*
+0   - 600  px: mobile phones
+600 - 900  px: tablet portrait
+900 - 1200 px: tablet landscape
+[1200 - 1800px]: normal styles apply
+1800px *:      Big desktop
+
+Breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+Order : base + typography > general layout + grid > page layout > components
+
+1em=16px;
+*/
+
+@mixin respond($breakpoint) {
+    @if $breakpoint==phone {
+        //Media Query only applies to screen (not for exp. for printing)
+        @media only screen and (max-width: 37.5em) {
+            //600px
+            @content;
+        }
+    }
+    @if $breakpoint==tab-port {
+        @media only screen and (max-width: 56.25em) {
+            //900px
+            @content;
+        }
+    }
+    @if $breakpoint==tab-land {
+        @media only screen and (max-width: 75em) {
+            //1200px
+            @content;
+        }
+    }
+    @if $breakpoint==big-desktop {
+        @media only screen and (min-width: 112.5em) {
+            //1800px
+            @content;
+        }
+    }
+}

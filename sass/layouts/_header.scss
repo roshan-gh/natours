@@ -1,0 +1,42 @@
+.header {
+    height: 80vh;
+    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url("../img/hero-small.jpg");
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    //Weather clip-path supports browsers or Safari or not
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0, 0)) {
+        height: 95vh;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); //To work in Safari
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    }
+    //two conditions with (and or,) for responsive images
+    //webkit-min-device-pixel-ratio is for Safari pixel ratio
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    only screen and (min-width: 125em) {
+        background-image: linear-gradient( to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url("../img/hero.jpg");
+    }
+    @include respond(phone) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
+    &__logo-box {
+        position: absolute;
+        left: 4rem;
+        top: 4rem;
+    }
+    &__logo {
+        height: 3.5rem;
+    }
+    &__logo:hover {
+        animation: zoomInOut 0.75s ease-in;
+    }
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}
